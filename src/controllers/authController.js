@@ -11,7 +11,8 @@ const refreshToken = (req, res) => {
             res.json({ newToken });
         })
     } catch (error) {
-        throw new Error('Internal server error : ', error);
+        console.error('Server error:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 }
 
